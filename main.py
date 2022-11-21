@@ -6,7 +6,7 @@ from mod_pokemon import Pokemon, Movement, battle_turn, type_table, battle_statu
 
 # Introduction:
 os.system("clear")
-print(" ¡Hola, entrenador! Bienvenido al simulador de combates Pokémon de la Generación I.")
+print(" ¡Hola, entrenador! Bienvenido al simulador de combates Pokémon de la Primera Generación.")
 input(), os.system("clear")
 print(" Antes de comenzar, deberás elegir un pokémon.")
 input(), os.system("clear")
@@ -49,7 +49,7 @@ h2 = pokemon2.health
 
 # Print results of selection:
 os.system("clear")
-print(" ¡Perfecto! Has escogido luchar con {}. Por tanto, luchará contra {}.".format(pokemon1.name, pokemon2.name))
+print(" ¡Perfecto! Has escogido luchar con {}. Tu rival luchará con {}.".format(pokemon1.name, pokemon2.name))
 input(); os.system("clear")
 t11 = int(type_table(pokemon1.type1,pokemon2.type1))
 t12 = int(type_table(pokemon1.type1,pokemon2.type2))
@@ -150,6 +150,8 @@ if   (pokemon1.status=="Fainted"):
     print("Imbécil Elon Musk: Y si no lo comprenden, su cuenta será borrada para siempre.")
     input(), os.system("clear")
     print("Imbécil Elon Musk: Twitter será un lugar puro al fin...")
+    input(), os.system("clear")
+    print("Imbécil Elon Musk: *Se sube en una carroza tirada por empleados de Twitter, completamente amordazados, y se marcha entre latigazos.*")
     input(), os.system("clear")
 elif (pokemon2.status=="Fainted"):
     print(" ¡{} enemigo se desmayó!".format(pokemon2.name))

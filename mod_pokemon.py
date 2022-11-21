@@ -58,7 +58,7 @@ def battle_turn(pokemon1, pokemon2, move1, move2, nmove1, nmove2, h1, h2, ally=1
         ally(int):     from pokemon1 or pokemon2, which is the ally?
     """
 
-    # Show pokemon stats:
+    # Show pokemon status:
     if (ally==1):
         battle_status(pokemon1, pokemon2, h1, h2)
     else:
