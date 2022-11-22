@@ -40,7 +40,7 @@ while (selected==False):
             selected = True
         else:
             raise Exception("ERROR: code is note ready for more than 2 pokemon in the data base!")
-    elif (selection.isnumeric() and int(selection)<=npok):
+    elif (selection.isnumeric() and int(selection)>0 and int(selection)<=npok):
         selection = int(selection)-1
         mask = (ipok==selection)
         other = ipok[~mask]
@@ -116,13 +116,9 @@ while (pokemon1.status=="Healthy") and (pokemon2.status=="Healthy"):
     right_selection = False
     while (right_selection==False):
         nmove1 = input("\n>> Selección: ")
-        try:
-            if (int(nmove1)<=n):
-                right_selection = True
-                break
-            else:
-                print("\n ===> ¿Ya estás trolleando otra vez? Selección inválida, introduce el número entero asociado al ataque que prefieras.")
-        except:
+        if (nmove1.isnumeric() and int(nmove1)>0 and int(nmove1)<=n):
+            right_selection = True
+        else:
             print("\n ===> ¿Ya estás trolleando otra vez? Selección inválida, introduce el número entero asociado al ataque que prefieras.")
     move1 = getattr(pokemon1,"move_"+str(nmove1))
     os.system("clear")

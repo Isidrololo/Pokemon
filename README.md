@@ -15,6 +15,8 @@
 
 # Releases:
 - Beta 1.0: 
-    - Bug fixed when selecting ally pokemon movement with an empty input.
-    - Improved selection of ally pokemon. The code has been generalized to implement more possible pokemons in the future (not implemented yet).
+    - Bug fixed when selecting allied pokemon movement with an empty input.
+    - Improved selection of allied pokemon. The code has been generalized to implement more possible pokemons in the future (not implemented yet).
     - Balance adjustment: decreased level of Charmander (10-->8) to equilibrate the combat. Now it is more likely to win with Bulbasaur (depending on how lucky you are).
+- Beta 1.1:
+    - Bug fixed when entering 0 to select pokemon and movements during battle.
