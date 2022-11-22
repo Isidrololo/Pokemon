@@ -5,6 +5,8 @@ import numpy as np
 from data import *
 from mod_pokemon import Pokemon, Movement, battle_turn, type_table, battle_status
 
+#Liña de codigo engadida por Dario para probar git
+
 # Introduction:
 os.system("clear")
 print(" ¡Hola, entrenador! Bienvenido al simulador de combates Pokémon de la Primera Generación.")
