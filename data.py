@@ -1,5 +1,8 @@
 from mod_pokemon import Pokemon, Movement
 
+# Store names of pokemons available in this data base:
+pokemon_list = ["Charmander", "Bulbasaur"]
+
 # Define base stats for Charmander:
 name = "Charmander"
 t1  = "Fire"
@@ -10,7 +13,7 @@ df  = 43
 sat = 60
 sdf = 50
 spd = 65
-lvl = 10
+lvl = 8
 
 # Create Charmander:
 charmander = Pokemon(name, t1, t2, hp, at, df, sat, sdf, spd, lvl)

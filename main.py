@@ -1,6 +1,7 @@
 ### Pokemon combat simulator
 import os
 import random
+import numpy as np
 from data import *
 from mod_pokemon import Pokemon, Movement, battle_turn, type_table, battle_status
 
@@ -18,30 +19,39 @@ print(" Como iba diciendo, tienes únicamente dos opciones para elegir.")
 input(), os.system("clear")
 print(" Elige sabiamente, pues determinará el devenir de tu épica aventura.")
 input(), os.system("clear")
-print(" ¿Qué pokemon prefieres, Charmander(1) o Bulbasaur(2)?")
 
 # Pokemon selection:
+print(" ¿Qué pokemon prefieres:")
+npok = len(pokemon_list)  # number of pokemon availiable
+ipok = np.arange(npok)    
+pokemon_list_lower = [x.lower() for x in pokemon_list]
+for ip, pname in enumerate(pokemon_list):
+    obj = eval(pname.lower())
+    print("     ({:<1}) {:<15}   Nivel={:<5}".format(ip+1, pname, obj.level))
 selected = False
 while (selected==False):
     selection = input("\n>> Selección: ")
-    if  (selection=="Charmander" or selection=="charmander"):
-        pokemon1 = charmander
-        pokemon2 = bulbasaur
-        selected = True
-    elif (selection=="Bulbasaur" or selection=="bulbasaur" or selection=="Bulbasur" or selection=="bulbasur"):
-        pokemon1 = bulbasaur
-        pokemon2 = charmander
-        selected = True
-    elif (selection=="1"):
-        pokemon1 = charmander
-        pokemon2 = bulbasaur
-        selected = True
-    elif (selection=="2"):
-        pokemon1 = bulbasaur
-        pokemon2 = charmander
+    if  (not selection.isnumeric()) and (selection.lower()=="charmander" or selection.lower()=="bulbasaur"):
+        other = pokemon_list_lower[:]
+        other.remove(selection.lower())
+        if len(other)==1:
+            pokemon1 = eval(selection.lower())
+            pokemon2 = eval(other[0].lower())
+            selected = True
+        else:
+            raise Exception("ERROR: code is note ready for more than 2 pokemon in the data base!")
+    elif (selection.isnumeric() and int(selection)<=npok):
+        selection = int(selection)-1
+        mask = (ipok==selection)
+        other = ipok[~mask]
+        if len(other)==1:
+            pokemon1 = eval(pokemon_list_lower[selection])
+            pokemon2 = eval(pokemon_list_lower[other[0]])
+        else:
+            raise Exception("ERROR: code is not ready for more than 2 pokemon in the data base!")
         selected = True
     else:
-        print("\n Esa opción no es valida, prueba otra vez. Venga, que no puede ser tan difícil...")
+        print("\n ===> Esa opción no es valida, prueba otra vez. Venga, que no puede ser tan difícil...")
 
 # Store in variables initial health points to be used in battle_status():
 h1 = pokemon1.health
@@ -86,15 +96,17 @@ print("x  Rival:    {:<15}   Nivel={:<5}   PS={:>3}/{:<3} x".format(pokemon2.nam
 input(), os.system("clear")
 print(" ¡Ve {}!".format(pokemon1.name))
 input(), os.system("clear")
-battle_status(pokemon1, pokemon2, h1, h2)
 
 # Development of the combat:
 nturns = 0
 while (pokemon1.status=="Healthy") and (pokemon2.status=="Healthy"):
 
+    # Show battle status at the begining of the turn:
+    battle_status(pokemon1, pokemon2, h1, h2)
+
     # Player selects next movement:
     n=0
-    print(" Selecciona uno de los siguientes movimientos de {}:".format(pokemon1.name))
+    print(" Selecciona uno de los siguientes movimientos de {} introduciendo el número correspondiente:".format(pokemon1.name))
     for i in range(0,4):
         if hasattr(pokemon1,"move_"+str(i+1)):
             n=i+1
@@ -103,13 +115,17 @@ while (pokemon1.status=="Healthy") and (pokemon2.status=="Healthy"):
                                                                            getattr(getattr(pokemon1,"move_"+str(i+1)),"power_points")))
     right_selection = False
     while (right_selection==False):
-        nmove1 = int(input("\n>> Selección: "))
-        if (isinstance(nmove1,int)) and (nmove1<=n):
-            right_selection = True
-        else:
-            print(" --> Selección inválida: prueba otra vez.")
-    os.system("clear")
+        nmove1 = input("\n>> Selección: ")
+        try:
+            if (int(nmove1)<=n):
+                right_selection = True
+                break
+            else:
+                print("\n ===> ¿Ya estás trolleando otra vez? Selección inválida, introduce el número entero asociado al ataque que prefieras.")
+        except:
+            print("\n ===> ¿Ya estás trolleando otra vez? Selección inválida, introduce el número entero asociado al ataque que prefieras.")
     move1 = getattr(pokemon1,"move_"+str(nmove1))
+    os.system("clear")
 
     # Enemy selects next movement (randomly):
     n=0
@@ -126,7 +142,6 @@ while (pokemon1.status=="Healthy") and (pokemon2.status=="Healthy"):
         battle_turn(pokemon2, pokemon1, move2, move1, nmove2, nmove1, h2, h1, ally=2)
 
     # End of the turn and start again if both Pokemon are healthy:
-    battle_status(pokemon1, pokemon2, h1, h2)
     nturns += 1
 
 # End of the combat:
