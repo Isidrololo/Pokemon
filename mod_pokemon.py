@@ -109,6 +109,7 @@ def calculate_stat(base, level):
     stat = (base + 50)*level/50 + 5
     stat = int(stat)
     return stat
+    
 # Calculate final value for HP (assuming IV=EV=0):
 def calculate_hp(base, level):
     hp = (base + 50)*level/50 + 10
