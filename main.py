@@ -140,7 +140,7 @@ while (pokemon1.status=="Healthy") and (pokemon2.status=="Healthy"):
     # End of the turn and start again if both Pokemon are healthy:
     nturns += 1
 
-# End of the combat:
+# Diaglogue for the end of the combat:
 if   (pokemon1.status=="Fainted"):
     print(" ¡{} aliado se desmayó!".format(pokemon1.name))
     input(), os.system("clear")
@@ -183,3 +183,4 @@ elif (pokemon2.status=="Fainted"):
     input(), os.system("clear")
     print(" Elon Musk: *Se sube en su cohete espacial privado, mientras se enciente un puro con un billete de 1000$ y se marcha fuera de órbita.*")
     input(), os.system("clear")
+
