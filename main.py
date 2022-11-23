@@ -5,7 +5,7 @@ import numpy as np
 from data import *
 from mod_pokemon import Pokemon, Movement, battle_turn, type_table, battle_status
 
-# Introduction:
+# Introduction dialogue:
 os.system("clear")
 print(" ¡Hola, entrenador! Bienvenido al simulador de combates Pokémon de la Primera Generación.")
 input(), os.system("clear")
