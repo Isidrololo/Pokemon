@@ -3,9 +3,9 @@ import os
 import random
 import numpy as np
 from data import *
-from mod_pokemon import Pokemon, Movement, battle_turn, type_table, battle_status
+from mod_pokemon import Pokemon, Movement, battle_turn, type_table, battle_status, check_global_pp
 
-# Introduction dialogue:
+# Introduction:
 os.system("clear")
 print(" ¡Hola, entrenador! Bienvenido al simulador de combates Pokémon de la Primera Generación.")
 input(), os.system("clear")
@@ -104,43 +104,56 @@ while (pokemon1.status=="Healthy") and (pokemon2.status=="Healthy"):
     # Show battle status at the begining of the turn:
     battle_status(pokemon1, pokemon2, h1, h2)
 
-    # Player selects next movement:
-    n=0
-    print(" Selecciona uno de los siguientes movimientos de {} introduciendo el número correspondiente:".format(pokemon1.name))
-    for i in range(0,4):
-        if hasattr(pokemon1,"move_"+str(i+1)):
-            n=i+1
-            print("   ({:<1}) {:<15} [Tipo: {:<10} PP: {:<2}]".format(i+1, getattr(getattr(pokemon1,"move_"+str(i+1)),"name"), 
-                                                                           getattr(getattr(pokemon1,"move_"+str(i+1)),"type"),
-                                                                           getattr(getattr(pokemon1,"move_"+str(i+1)),"power_points")))
-    right_selection = False
-    while (right_selection==False):
-        nmove1 = input("\n>> Selección: ")
-        if (nmove1.isnumeric() and int(nmove1)>0 and int(nmove1)<=n):
-            right_selection = True
-        else:
-            print("\n ===> ¿Ya estás trolleando otra vez? Selección inválida, introduce el número entero asociado al ataque que prefieras.")
-    move1 = getattr(pokemon1,"move_"+str(nmove1))
-    os.system("clear")
+    # Check if there are PP's to combat: if not, use default 
+    no_global_pp_1 = check_global_pp(pokemon1)
+    if (no_global_pp_1==True):
+        nmove1 = False
+        input(" ¡A {} no le quedan más movimientos!".format(pokemon1.name))
+        os.system("clear")
+    else:
+        # Player selects next movement:
+        n=0
+        print(" Selecciona uno de los siguientes movimientos de {} introduciendo el número correspondiente:".format(pokemon1.name))
+        for i in range(0,4):
+            if hasattr(pokemon1,"move_"+str(i+1)):
+                n=i+1
+                print("   ({:<1}) {:<15} [Tipo: {:<10} PP: {:<2}]".format(i+1, getattr(getattr(pokemon1,"move_"+str(i+1)),"name"), 
+                                                                            getattr(getattr(pokemon1,"move_"+str(i+1)),"type"),
+                                                                            getattr(getattr(pokemon1,"move_"+str(i+1)),"power_points")))
+        right_selection = False
+        while (right_selection==False):
+            nmove1 = input("\n>> Selección: ")
+            if (nmove1.isnumeric() and int(nmove1)>0 and int(nmove1)<=n):
+                if getattr(getattr(pokemon1,"move_"+nmove1),"power_points")>0:
+                    right_selection = True
+                else:            
+                    print("\n ===> Te has quedado sin PP para este movimiento, ¡tienes que escoger otro!")
+            else:
+                print("\n ===> ¿Ya estás trolleando otra vez? Selección inválida, introduce el número entero asociado al ataque que prefieras.")
+        nmove1 = int(nmove1)
+        os.system("clear")
 
     # Enemy selects next movement (randomly):
-    n=0
-    for i in range(0,4):
-        if hasattr(pokemon2,"move_"+str(i+1)):
-            n=i+1
-    nmove2 = random.randint(1,n)   
-    move2 = getattr(pokemon2,"move_"+str(nmove2))
+    no_global_pp_2 = check_global_pp(pokemon2)
+    if (no_global_pp_2==True):
+        nmove2 = False
+    else:
+        ind = []
+        for i in range(0,4):
+            if ( hasattr(pokemon2,"move_"+str(i+1)) and getattr(getattr(pokemon2,"move_"+str(i+1)),"power_points")>0 ):
+                ind.append(str(i+1))
+        nmove2 = int(random.choice(ind))
 
     # Perform battle turn:
     if   (pokemon1.speed>pokemon2.speed) or (pokemon1.speed==pokemon2.speed):  # if speed values matches, user always wins
-        battle_turn(pokemon1, pokemon2, move1, move2, nmove1, nmove2, h1, h2, ally=1)
+        battle_turn(pokemon1, pokemon2, nmove1, nmove2, h1, h2, ally=1)
     elif (pokemon1.speed<pokemon2.speed):
-        battle_turn(pokemon2, pokemon1, move2, move1, nmove2, nmove1, h2, h1, ally=2)
+        battle_turn(pokemon2, pokemon1, nmove2, nmove1, h2, h1, ally=2)
 
     # End of the turn and start again if both Pokemon are healthy:
     nturns += 1
 
-# Diaglogue for the end of the combat:
+# End of the combat:
 if   (pokemon1.status=="Fainted"):
     print(" ¡{} aliado se desmayó!".format(pokemon1.name))
     input(), os.system("clear")
@@ -183,4 +196,3 @@ elif (pokemon2.status=="Fainted"):
     input(), os.system("clear")
     print(" Elon Musk: *Se sube en su cohete espacial privado, mientras se enciente un puro con un billete de 1000$ y se marcha fuera de órbita.*")
     input(), os.system("clear")
-

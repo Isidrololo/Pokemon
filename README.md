@@ -20,3 +20,5 @@
     - Balance adjustment: decreased level of Charmander (10-->8) to equilibrate the combat. Now it is more likely to win with Bulbasaur (depending on how lucky you are).
 - Beta 1.1:
     - Bug fixed when entering 0 to select pokemon and movements during battle.
+- Beta 1.2:
+    - Bug fixed when any movement has no PP. Also, when there are no moves with PP, the pokemon is forced to use STRUGGLE.

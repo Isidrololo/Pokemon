@@ -45,7 +45,7 @@ typ = "Normal"
 cat = "Physical"
 pow = 40
 acc = 100
-pp = 35
+pp = 35   
 scratch = Movement(name, typ, cat, pow, acc, pp)
 
 # Create movement: ember
@@ -54,7 +54,7 @@ typ = "Fire"
 cat = "Special"
 pow = 40
 acc = 100
-pp = 25
+pp = 25   
 ember = Movement(name, typ, cat, pow, acc, pp)
 
 # Create movement: tackle
@@ -63,7 +63,7 @@ typ = "Normal"
 cat = "Physical"
 pow = 40
 acc = 100
-pp = 35
+pp = 35  
 tackle = Movement(name, typ, cat, pow, acc, pp)
 
 # Create movement: vine whip
@@ -72,7 +72,7 @@ typ = "Grass"
 cat = "Physical"
 pow = 45
 acc = 100
-pp = 25
+pp = 25 
 vine_whip = Movement(name, typ, cat, pow, acc, pp)
 
 
