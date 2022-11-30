@@ -28,6 +28,8 @@
     - Bug fixed when any movement has no PP. Also, when there are no moves with PP, the pokemon is forced to use STRUGGLE.
 - Beta 2.0:
     - Included a script *get_data.py* to obtain, using Web Scraping, all the data related with the Generation I of Pokemon. Every action is detailed so it can be understood easily. I am not an expert in Web Scraping so I am sure that things could have been done more efficiently.
+<<<<<<< HEAD
     - Related with the previous point, the folder *./Data/* has been added with several .csv files as data base.
     - The selection of pokemons at the start of the combat has been changed. Now, the player can choose from the whole pool of pokemons in Generation I. The pokemon of the enemy is selected randomly from the whole pool. The level stat of each pokemon is chosen depending on their types in order to balance the game. The stats of both pokemons are displayed at the beggining of the combat.
     - Created *text_funcs.py* with most of the texts that appear in the combat just to improve readability of *main.py*.
+
