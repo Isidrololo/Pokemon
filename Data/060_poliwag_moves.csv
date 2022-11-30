@@ -1,0 +1,6 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Bubble	1	Water	Special	20	100	30
+Water Gun	19	Water	Special	40	100	25
+DoubleSlap	25	Normal	Physical	15	85	10
+Body Slam	31	Normal	Physical	85	100	15
+Hydro Pump	45	Water	Special	120	80	5

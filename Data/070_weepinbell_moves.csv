@@ -1,0 +1,7 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Vine Whip	1	Grass	Special	35	100	25
+Wrap	1	Normal	Physical	15	85	20
+Wrap	13	Normal	Physical	15	85	20
+Acid	29	Poison	Physical	40	100	30
+Razor Leaf	38	Grass	Special	55	95	25
+Slam	49	Normal	Physical	80	75	20

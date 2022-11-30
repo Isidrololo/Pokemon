@@ -1,0 +1,9 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Bubble	1	Water	Special	20	100	30
+Tackle	1	Normal	Physical	35	95	35
+Water Gun	1	Water	Special	40	100	25
+Bubble	8	Water	Special	20	100	30
+Water Gun	15	Water	Special	40	100	25
+Bite	24	Normal	Physical	60	100	25
+Skull Bash	42	Normal	Physical	100	100	10
+Hydro Pump	52	Water	Special	120	80	5

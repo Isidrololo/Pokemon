@@ -1,0 +1,6 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Scratch	1	Normal	Physical	40	100	35
+Slash	17	Normal	Physical	70	100	20
+Poison Sting	24	Poison	Physical	15	100	35
+Swift	31	Normal	Physical	60	100	20
+Fury Swipes	38	Normal	Physical	18	80	15

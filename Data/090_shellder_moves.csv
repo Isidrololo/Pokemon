@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+Clamp	23	Water	Special	35	75	15
+Aurora Beam	30	Ice	Special	65	100	20
+Ice Beam	50	Ice	Special	95	100	10

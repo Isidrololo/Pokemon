@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Bite	1	Normal	Physical	60	100	25
+Leech Life	1	Bug	Physical	20	100	10
+Bite	15	Normal	Physical	60	100	25
+Wing Attack	32	Flying	Physical	35	100	35

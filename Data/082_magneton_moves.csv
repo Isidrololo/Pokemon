@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+ThunderShock	1	Electric	Special	40	100	30
+ThunderShock	25	Electric	Special	40	100	30
+Swift	46	Normal	Physical	60	100	20

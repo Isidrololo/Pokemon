@@ -1,0 +1,6 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+Rock Throw	16	Rock	Physical	50	65	15
+Selfdestruct	21	Normal	Physical	130	100	5
+Earthquake	31	Ground	Physical	100	100	10
+Explosion	36	Normal	Physical	170	100	5

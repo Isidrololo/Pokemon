@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Bind	1	Normal	Physical	15	75	20
+Constrict	1	Normal	Physical	10	100	35
+Absorb	29	Grass	Special	20	100	25
+Slam	45	Normal	Physical	80	75	20

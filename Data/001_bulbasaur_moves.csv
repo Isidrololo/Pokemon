@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+Vine Whip	13	Grass	Special	35	100	25
+Razor Leaf	27	Grass	Special	55	95	25
+SolarBeam	48	Grass	Special	120	100	10

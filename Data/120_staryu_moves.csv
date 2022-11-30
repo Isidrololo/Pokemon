@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+Water Gun	17	Water	Special	40	100	25
+Swift	32	Normal	Physical	60	100	20
+Hydro Pump	47	Water	Special	120	80	5

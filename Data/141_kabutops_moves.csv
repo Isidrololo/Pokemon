@@ -1,0 +1,6 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Absorb	1	Grass	Special	20	100	25
+Scratch	1	Normal	Physical	40	100	35
+Absorb	34	Grass	Special	20	100	25
+Slash	39	Normal	Physical	70	100	20
+Hydro Pump	53	Water	Special	120	80	5

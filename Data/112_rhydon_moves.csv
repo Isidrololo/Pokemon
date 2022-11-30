@@ -1,0 +1,7 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Fury Attack	1	Normal	Physical	15	85	20
+Horn Attack	1	Normal	Physical	65	100	25
+Stomp	1	Normal	Physical	65	100	20
+Stomp	30	Normal	Physical	65	100	20
+Fury Attack	40	Normal	Physical	15	85	20
+Take Down	64	Normal	Physical	90	85	20
