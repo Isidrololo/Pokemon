@@ -1,0 +1,6 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Comet Punch	1	Normal	Physical	18	85	15
+Fire Punch	33	Fire	Special	75	100	15
+Ice Punch	38	Ice	Special	75	100	15
+ThunderPunch	43	Electric	Special	75	100	15
+Mega Punch	48	Normal	Physical	80	85	20

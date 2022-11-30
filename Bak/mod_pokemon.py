@@ -1,6 +1,5 @@
-# Classes and functions to be used in main.py
+# Write class to create pokemons:
 import os
-import csv
 import random
 import numpy as np
 
@@ -22,24 +21,6 @@ class Pokemon:
             self.status = "Healthy"
         else:
             self.status = "Fainted"
-
-    # Display all attributes of a Pokemon object:
-    def all_attrs(self):
-        print("   {:>15}: {}".format("Name",            self.name))
-        print("   {:>15}: {}".format("Type 1",          self.type1))
-        print("   {:>15}: {}".format("Type 2",          self.type2))
-        print("   {:>15}: {}".format("HP",              self.health))
-        print("   {:>15}: {}".format("Attack",          self.attack))
-        print("   {:>15}: {}".format("Defense",         self.defense))
-        print("   {:>15}: {}".format("Special Attack",  self.special_attack))
-        print("   {:>15}: {}".format("Special Defense", self.special_defense))
-        print("   {:>15}: {}".format("Speed",           self.speed))
-        print("   {:>15}: {}".format("Level",           self.level))
-        print("   {:>15}: {}".format("Status",          self.status))
-        for i in range(1,5):
-            if hasattr(self, "move_"+str(i)):
-                print("   {:>15}: {}".format("Move #"+str(i), getattr(getattr(self, "move_"+str(i)),"name")))
-        print("")
 
     # Add movements to the Pokemon object:
     def add_move(self, move):
@@ -146,128 +127,6 @@ class Movement:
 #****************************************************************************
 # Functions:
 
-# Select random pokemon from Generation I:
-def create_pokemon_rand(level):
-
-    # Find random ID:
-    ir = random.randint(1,151)
-
-    # Load data from Generation I:
-    file = "./Data/data.csv"
-    with open(file, "r") as fid:
-        datas = csv.reader(fid)
-        header = next(datas)[0].split("\t")
-        rows = []
-        for data in datas:
-            rows.append(data)
-    datas = []
-    for row in rows:
-        datas.append(row[0].split("\t"))
-
-    # Find name associated to the random ID:
-    name = datas[ir-1][1]
-
-    # Create pokemon object:
-    pokemon = create_pokemon(name, level)
-    return pokemon
-
-# Create Pokemon object:
-def create_pokemon(name, level):
-
-    # Get base stats:
-    datadir = "./Data/"
-    file = "data.csv"
-    rows = []
-    with open(datadir + file, "r") as fid:
-        data = csv.reader(fid)
-        header = next(data)
-        for row in data:
-            rows.append(row)
-    stats = []
-    for row in rows:
-        stats.append(row[0].split("\t"))
-
-    # Find pokemon:
-    ip = None
-    if ("nidoran" in name.lower()):
-        print("\n    >> En el caso de Nidoran, puedes elegir su sexo biológico ('macho' o 'hembra'):\n\t".format(name))
-        sexo = input("         >> Selección: ")
-        if (sexo.lower()=="macho"):
-            name = "nidoran♂"
-        elif (sexo.lower()=="hembra"):
-            name = "nidoran♀"
-    for ist,stat in enumerate(stats):
-        if (stat[1].lower()==name.lower()):
-            ip = ist
-    if (ip==None):
-        print("\n ===> Esa opción no es valida, prueba otra vez. Venga, que no puede ser tan difícil...")
-        pokemon = None
-        return pokemon
-    data = stats[ip]
-
-    # Create Pokemon object:
-    id, name, hp, at, df, sat, sdf, spd, t1, t2 = data
-    pokemon = Pokemon(name, t1, t2, int(hp), int(at), int(df), int(sat), int(sdf), int(spd), level)    
-
-    # Add the final 4 moves according to "level":
-    file = "{}_{}_moves.csv".format(id.zfill(3), pokemon.name.lower())
-    moves = []
-    with open(datadir + file, "r") as fid:
-        data = csv.reader(fid)
-        header = next(data)
-        header = header[0].split("\t")
-        for move in data:
-            moves.append(move[0].split("\t"))
-
-    # Remove moves out of level:
-    ind = []
-    for im,move in enumerate(moves):
-        cap_level = int(move[1])
-        if (cap_level>level):
-            ind.append(im)
-    if len(ind)>0:
-        ind = slice(min(ind), max(ind)+1)
-        del moves[ind]
-
-    # Remove repeated moves:
-    ind = []
-    for im in range(len(moves)):
-        iname = moves[im][0]
-        for jm in range(im+1,len(moves)):
-            if jm in ind:
-                continue
-            jname = moves[jm][0]
-            if (iname==jname):
-                ind.append(max(im,jm))
-    if len(ind)>0:
-        ind = sorted(ind, reverse=True)
-        for i in ind:
-            del moves[i]
-    nm = len(moves)
-    
-    # Create Movement objects and add them to the Pokemon object:
-    if (nm>4):
-        counter=4
-        for im in range(nm-1,-1,-1):
-            name, kk, typ, cat, pow, acc, pp = moves[im]
-            move_tmp = Movement(name, typ, cat, int(pow), int(acc), int(pp))
-            setattr(pokemon, "move_"+str(counter), move_tmp)
-            counter-=1
-            if (counter==0):
-                break
-    else:
-        for im in range(nm-1,-1,-1):
-            name, kk, typ, cat, pow, acc, pp = moves[im]
-            move_tmp = Movement(name, typ, cat, int(pow), int(acc), int(pp))
-            setattr(pokemon, "move_"+str(nm), move_tmp)
-            nm-=1
-            if (nm==0):
-                break
-
-    # Output:
-    return pokemon
-
-
 # Battle status:
 def battle_status(pokemon1, pokemon2, h1, h2):
     """
@@ -286,25 +145,27 @@ def battle_status(pokemon1, pokemon2, h1, h2):
 # Define simplified type table:
 def type_table(attack_type, defense_type):
 
-    # Load data from .csv file:
-    with open("./Data/table_types.csv", "r") as fid:
-        data = csv.reader(fid)
-        types = next(data)[0].split("\t")
-        rows = []
-        for row in data:
-            rows.append(row)
-    values = []
-    for row in rows:
-        values.append(row[0].split("\t"))
+    # Type factor equals unity when any of the types is empty:
+    if (not attack_type) or (not defense_type):
+        T = 1
+        return T
 
-    # Find type factor:
-    if (attack_type in types) and (defense_type in types):
-        t1 = types.index(attack_type)
-        t2 = types.index(defense_type)
-        factor = float(values[t1][t2])
-    else:
-        factor = 1.0
-    return factor
+    # Define general order of Pokemon types:
+    type_order = ["Normal", "Fire", "Water", "Grass", "Poison"]
+
+    # Define type chart with a matrix:
+    M = np.matrix([ [1,1,1,1,1], [1,0.5,0.5,2,1], [1,2,0.5,0.5,1], [1,0.5,2,0.5,0.5], [1,1,1,2,0.5] ])
+
+    # Find the appropriate matrix element:
+    try:
+        iT = type_order.index(attack_type)
+        jT = type_order.index(defense_type)
+    except:
+        raise Exception("ERROR: Unknown attack/defense type!")
+
+    # Output corresponding type multiplier:
+    T = M[iT,jT]
+    return T
 
 # Define a function to simulate a turn during a battle:
 def battle_turn(pokemon1, pokemon2, nmove1, nmove2, h1, h2, ally=1):

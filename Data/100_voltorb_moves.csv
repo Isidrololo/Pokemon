@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+Selfdestruct	22	Normal	Physical	130	100	5
+Swift	36	Normal	Physical	60	100	20
+Explosion	43	Normal	Physical	170	100	5

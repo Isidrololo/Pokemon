@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Body Slam	1	Normal	Physical	85	100	15
+DoubleSlap	1	Normal	Physical	15	85	10
+Water Gun	1	Water	Special	40	100	25
+Water Gun	19	Water	Special	40	100	25

@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Bite	1	Normal	Physical	60	100	25
+Ember	18	Fire	Special	40	100	25
+Take Down	30	Normal	Physical	90	85	20
+Flamethrower	50	Fire	Special	95	100	15

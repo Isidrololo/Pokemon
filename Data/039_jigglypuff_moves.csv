@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Pound	9	Normal	Physical	40	100	35
+DoubleSlap	24	Normal	Physical	15	85	10
+Body Slam	34	Normal	Physical	85	100	15
+Double-Edge	39	Normal	Physical	100	100	15

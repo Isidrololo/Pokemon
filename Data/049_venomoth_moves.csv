@@ -1,0 +1,6 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Leech Life	1	Bug	Physical	20	100	10
+Tackle	1	Normal	Physical	35	95	35
+Leech Life	27	Bug	Physical	20	100	10
+Psybeam	38	Psychic	Special	65	100	20
+Psychic	50	Psychic	Special	90	100	10

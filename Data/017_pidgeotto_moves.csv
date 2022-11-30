@@ -1,0 +1,4 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Gust	1	Normal	Physical	40	100	35
+Quick Attack	12	Normal	Physical	40	100	30
+Wing Attack	31	Flying	Physical	35	100	35

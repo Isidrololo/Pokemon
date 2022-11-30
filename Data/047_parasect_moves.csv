@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Leech Life	1	Bug	Physical	20	100	10
+Scratch	1	Normal	Physical	40	100	35
+Leech Life	20	Bug	Physical	20	100	10
+Slash	39	Normal	Physical	70	100	20

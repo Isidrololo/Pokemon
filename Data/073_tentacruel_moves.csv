@@ -1,0 +1,8 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Acid	1	Poison	Physical	40	100	30
+Wrap	1	Normal	Physical	15	85	20
+Wrap	13	Normal	Physical	15	85	20
+Poison Sting	18	Poison	Physical	15	100	35
+Water Gun	22	Water	Special	40	100	25
+Constrict	27	Normal	Physical	10	100	35
+Hydro Pump	50	Water	Special	120	80	5

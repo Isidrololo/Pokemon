@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Scratch	1	Normal	Physical	40	100	35
+Confusion	36	Psychic	Special	50	100	25
+Fury Swipes	43	Normal	Physical	18	80	15
+Hydro Pump	52	Water	Special	120	80	5

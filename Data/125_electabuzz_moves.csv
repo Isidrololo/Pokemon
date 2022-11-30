@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Quick Attack	1	Normal	Physical	40	100	30
+ThunderShock	34	Electric	Special	40	100	30
+ThunderPunch	42	Electric	Special	75	100	15
+Thunder	54	Electric	Special	120	70	10

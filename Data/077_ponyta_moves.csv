@@ -1,0 +1,5 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Ember	1	Fire	Special	40	100	25
+Stomp	32	Normal	Physical	65	100	20
+Fire Spin	39	Fire	Special	15	70	15
+Take Down	43	Normal	Physical	90	85	20

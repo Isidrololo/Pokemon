@@ -1,0 +1,4 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Tackle	1	Normal	Physical	35	95	35
+Quick Attack	7	Normal	Physical	40	100	30
+Hyper Fang	14	Normal	Physical	80	90	15

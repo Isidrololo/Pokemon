@@ -1,0 +1,4 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Acid	1	Poison	Physical	40	100	30
+Razor Leaf	1	Grass	Special	55	95	25
+Wrap	13	Normal	Physical	15	85	20

@@ -1,0 +1,10 @@
+Name	level	Type	Category	Power	Accuracy	PP
+Ember	1	Fire	Special	40	100	25
+Quick Attack	1	Normal	Physical	40	100	30
+Tackle	1	Normal	Physical	35	95	35
+Quick Attack	27	Normal	Physical	40	100	30
+Ember	31	Fire	Special	40	100	25
+Bite	40	Normal	Physical	60	100	25
+Fire Spin	44	Fire	Special	15	70	15
+Rage	48	Normal	Physical	20	100	20
+Flamethrower	54	Fire	Special	95	100	15
